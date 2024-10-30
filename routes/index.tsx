@@ -1,3 +1,5 @@
+import { X } from "lucide-preact";
+
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { toDirectDownloadUrl } from "../lib/onedrive-link.ts";
 import CopyButton from "../islands/copy-button.tsx";
@@ -26,13 +28,23 @@ export default function Page({ data }: PageProps<Data>) {
         <form class="flex flex-col gap-4">
           <label class="flex flex-col gap-2">
             <span class="font-semibold text-sm">Share URL</span>
-            <input
-              type="text"
-              name="shareUrl"
-              value={shareUrl}
-              class="border rounded-md p-2 flex-1 font-normal"
-              autofocus
-            />
+            <div class="flex-1 relative">
+              <input
+                type="text"
+                name="shareUrl"
+                value={shareUrl}
+                class="border rounded-md p-2 w-full font-normal"
+                autofocus
+              />
+              <div class="absolute top-0 right-2 h-full flex items-center justify-center">
+                <a
+                  class="right-1.5 bottom-1.5 p-1 rounded-full hover:bg-zinc-100"
+                  href="/"
+                >
+                  <X class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
           </label>
           <button
             type="submit"
